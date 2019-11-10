@@ -1,8 +1,11 @@
 package inw.golf;
 
+import inw.golf.gamerules.GameRuleFactory;
 import inw.golf.gamerules.InverterGameRule;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class GameRoundTest {
 
@@ -31,6 +34,60 @@ public class GameRoundTest {
         SoftAssertions softly = new SoftAssertions();
         VerfiyCellStatesAreInverted(x, y, oldState, newState, softly);
         softly.assertAll();
+    }
+
+
+    @Test
+    public void PlayRound_WithDefaultRuleSet_RebirthIsSuccessful() {
+        boolean[][] testBoard = {
+                {true,false,false},
+                {true,false,false},
+                {true,false,false},
+        };
+        boolean result = playRound(testBoard);
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    public void PlayRound_WithDefaultRuleSet_IsolationKillsIsSuccessful() {
+        boolean[][] testBoard = {
+                {true,false,false},
+                {false,true,false},
+                {false,false,false},
+        };
+
+        boolean result = playRound(testBoard);
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void PlayRound_WithDefaultRuleSet_StayAliveIsSuccessful() {
+        boolean[][] testBoard = {
+                {true,false,false},
+                {true,true,false},
+                {false,false,false},
+        };
+
+        boolean result = playRound(testBoard);
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    public void PlayRound_WithDefaultRuleSet_OvercrowdingKillsIsSuccessful() {
+        boolean[][] testBoard = {
+                {true,false,false},
+                {true,true,false},
+                {true,true,false},
+        };
+
+        boolean result = playRound(testBoard);
+        assertThat(result).isFalse();
+    }
+
+    private boolean playRound(boolean[][] testBoard) {
+        GameBoard board = new GameBoard(testBoard);
+        GameRound round = new GameRound(new GameRuleFactory().CreateDefaultRuleSet());
+        return round.Play(board).getPlayBoard()[1][1];
     }
 
     private void VerfiyCellStatesAreInverted(int x, int y, boolean[][] oldState, boolean[][] newState, SoftAssertions softly) {

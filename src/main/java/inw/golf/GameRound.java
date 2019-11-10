@@ -26,10 +26,13 @@ public class GameRound {
     }
 
     private boolean ExecuteRules(Position position, boolean[][] currentBoard) {
-        return gameRules
-                .stream()
-                .map(rule -> rule.Execute(position, currentBoard))
-                .reduce(true, (a, b) -> a && b);
+        boolean currentState = currentBoard[position.x][position.y];
+        for (GameRule rule : gameRules) {
+            boolean newState = rule.Execute(position, currentBoard);
+            if(newState != currentState)
+                return newState;
+        }
+        return currentState;
     }
 
 }
