@@ -2,6 +2,7 @@ package inw.golf;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.Ignore;
 
 import static inw.golf.testhelper.BoardTestHelper.CreateAllFalseBoard;
 import static inw.golf.testhelper.BoardTestHelper.CreateAllTrueBoard;
@@ -30,7 +31,7 @@ public class GameBoardTest {
         Assert.assertArrayEquals(expectedResult, board);
     }
 
-    @Test @Ignore("flaky by design")
+    @Ignore ("flaky by design") @Test
     public void PlayBoard_With50PercentOddToBeLiveCell_AboutHalfOfTheCellsAreLiving() {
         int x = 10, y = 10;
         GameBoard sut = new GameBoard(x,y,0.5);
