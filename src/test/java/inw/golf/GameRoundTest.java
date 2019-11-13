@@ -1,5 +1,7 @@
 package inw.golf;
 
+import inw.golf.board.GameBoard;
+import inw.golf.board.GameRound;
 import inw.golf.gamerules.GameRuleFactory;
 import inw.golf.gamerules.InverterGameRule;
 import org.assertj.core.api.SoftAssertions;

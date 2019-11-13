@@ -1,4 +1,4 @@
-package inw.golf;
+package inw.golf.board;
 
 public class Dimension {
 

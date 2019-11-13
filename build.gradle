@@ -20,4 +20,4 @@ dependencies {
     testCompile("org.assertj:assertj-core:3.11.1")
 }
 
-mainClassName = 'inw.golf.GolfUi'
+mainClassName = 'inw.golf.ui.GolfUi'

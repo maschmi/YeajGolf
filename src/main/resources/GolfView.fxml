@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.text.Text?>
+<GridPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="inw.golf.ui.GolfViewController"
+          alignment="TOP_LEFT" hgap="10" vgap="10">
+   <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+   <Label fx:id="heading" alignment="CENTER"  text="Play a game of life"
+            textAlignment="CENTER"
+            GridPane.columnIndex="0"
+            GridPane.rowIndex="0"
+            GridPane.columnSpan="2"
+            GridPane.halignment="CENTER"/>
+   <Canvas fx:id="mainCanvas" height="519.0" width="677.0"
+            GridPane.columnIndex="0"
+            GridPane.rowIndex="1"
+            GridPane.rowSpan="7"
+            GridPane.valignment="TOP"
+            GridPane.halignment="LEFT"/>
+   <Label fx:id="roundCounter" prefHeight="16.0" prefWidth="63.0" text="Round 0"
+            GridPane.columnIndex="1"
+            GridPane.rowIndex="1"
+            GridPane.columnSpan="2"
+            GridPane.halignment="LEFT"/>
+   <Button fx:id="runBtn" mnemonicParsing="false" prefHeight="26.0" prefWidth="63.0" text="Run"
+            GridPane.columnIndex="1"
+            GridPane.rowIndex="2"
+            GridPane.halignment="LEFT"
+            onAction="#handleRunButtonAction"/>
+   <Button fx:id="replayBtn" mnemonicParsing="false" text="Replay"
+            GridPane.columnIndex="2"
+            GridPane.rowIndex="2"
+            GridPane.valignment="TOP"
+            GridPane.halignment="LEFT"
+            onAction="#handleReplayButtonAction"/>
+   <Label text="X"
+          GridPane.columnIndex="1"
+          GridPane.rowIndex="4"
+          GridPane.halignment="LEFT" />
+   <TextField fx:id="xSize" text="400"
+          GridPane.columnIndex="2"
+          GridPane.rowIndex="4"
+          GridPane.halignment="RIGHT" />
+   <Label text="Y"
+          GridPane.columnIndex="1"
+          GridPane.rowIndex="5"
+          GridPane.halignment="LEFT" />
+   <TextField fx:id="ySize" text="200"
+           GridPane.columnIndex="2"
+           GridPane.rowIndex="5"
+           GridPane.halignment="RIGHT" />
+   <Label text="Rounds"
+          minWidth="-Infinity"
+          GridPane.columnIndex="1"
+          GridPane.rowIndex="6"
+          GridPane.halignment="LEFT" />
+   <TextField fx:id="maxRound" text="50"
+              GridPane.columnIndex="2"
+              GridPane.rowIndex="6"
+              GridPane.halignment="RIGHT" />
+</GridPane>

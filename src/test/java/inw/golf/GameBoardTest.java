@@ -1,5 +1,6 @@
 package inw.golf;
 
+import inw.golf.board.GameBoard;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Ignore;

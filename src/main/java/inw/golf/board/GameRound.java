@@ -1,4 +1,4 @@
-package inw.golf;
+package inw.golf.board;
 
 import inw.golf.gamerules.GameRule;
 import inw.golf.gamerules.Position;

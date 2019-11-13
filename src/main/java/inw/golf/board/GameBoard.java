@@ -1,4 +1,4 @@
-package inw.golf;
+package inw.golf.board;
 
 import java.util.Random;
 
@@ -8,16 +8,19 @@ public class GameBoard {
     public final Dimension dimension;
 
     public GameBoard(int x, int y, double oddOfCellToBeAlive) {
-        dimension = new Dimension(x,y);
-        playBoard = new boolean[x][y];
-        Random rnd = new Random();
-        for(int row = 0; row < y; row++)
-            for(int col = 0; col < x; col++)
-                playBoard[col][row] = (oddOfCellToBeAlive) > rnd.nextDouble();
+        this(new Dimension(x,y), oddOfCellToBeAlive);
      }
 
-    GameBoard(GameBoard input) {
+    public GameBoard(Dimension dim, double oddOfCellToBeAlive) {
+        dimension = dim;
+        playBoard = new boolean[dim.x][dim.y];
+        Random rnd = new Random();
+        for(int row = 0; row < dim.y; row++)
+            for(int col = 0; col < dim.x; col++)
+                playBoard[col][row] = (oddOfCellToBeAlive) > rnd.nextDouble();
+    }
 
+    GameBoard(GameBoard input) {
         playBoard = input.getPlayBoard();
         dimension = input.dimension;
     }
